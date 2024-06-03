@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CameraView, useCameraPermissions } from "expo-camera/next";
+import { CameraView, useCameraPermissions } from "expo-camera/legacy";
 import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 // import { UserProvider } from "../../context/UserProvider";
 // import { useContext } from "react";
