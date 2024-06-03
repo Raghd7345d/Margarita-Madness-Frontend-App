@@ -1,23 +1,25 @@
-import { Tabs } from "expo-router";
+import { Drawer } from "expo-router/drawer";
 import { MaterialIcons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { COLORS } from "../../styles/constants";
 
 export default function MainTabs() {
   return (
-    <Tabs
+    <Drawer
       screenOptions={{
         headerStyle: {
-          backgroundColor: COLORS.dark,
+          // backgroundColor: COLORS.dark,
         },
-        headerTintColor: COLORS.light,
+        headerShown: false,
+
+        // headerTintColor: COLORS.light,
         tabBarStyle: {
-          backgroundColor: COLORS.dark,
+          // backgroundColor: COLORS.dark,
         },
-        tabBarActiveTintColor: COLORS.primary,
+        // tabBarActiveTintColor: COLORS.primary,
       }}
     >
-      <Tabs.Screen
+      <Drawer.Screen
         name="index"
         options={{
           title: "Home",
@@ -26,10 +28,11 @@ export default function MainTabs() {
           },
         }}
       />
-      <Tabs.Screen
-        name="page2"
+      <Drawer.Screen
+        name="[id]"
         options={{
           title: "Page 2",
+
           tabBarIcon: ({ color }) => {
             return (
               <MaterialCommunityIcons
@@ -41,6 +44,22 @@ export default function MainTabs() {
           },
         }}
       />
-    </Tabs>
+      <Drawer.Screen
+        name="camera"
+        options={{
+          title: "camera",
+
+          tabBarIcon: ({ color }) => {
+            return (
+              <MaterialCommunityIcons
+                name="animation-outline"
+                size={24}
+                color={color}
+              />
+            );
+          },
+        }}
+      />
+    </Drawer>
   );
 }
