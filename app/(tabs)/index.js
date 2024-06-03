@@ -13,7 +13,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { categories, pizzaItems } from "../../constants";
 import Carousel from "react-native-snap-carousel";
-import PizzaCard from "../../components/pizzaCards";
+import PizzaCard from "../../components/Card";
 import { EvilIcons } from "@expo/vector-icons";
 
 export default function Home() {
