@@ -22,6 +22,9 @@ export default function PizzaCard({ item }) {
         backgroundColor: "#ff9f1c",
         height: 350,
         width: 250,
+        shadowColor: "black",
+        shadowOpacity: 0.5,
+        shadowRadius: 10,
       }}
     >
       <View
@@ -66,23 +69,21 @@ export default function PizzaCard({ item }) {
           className="flex-row justify-between items-center"
         >
           <Text className="text-white font-bold text-lg">€ {item.price}</Text>
-          {listPizza.map((pizza) => {
-            <View key={pizza.id}>
-              <Link href={`/pizzaItems/${item.id}`}>
-                <TouchableOpacity
-                  style={{
-                    shadowColor: "black",
-                    shadowRadius: 40,
-                    shadowOffset: { width: -20, height: -10 },
-                    shadowOpacity: 1,
-                  }}
-                  className="p-4 rounded-full"
-                >
-                  <AntDesign name="pluscircle" size={45} color="white" />
-                </TouchableOpacity>
-              </Link>
-            </View>;
-          })}
+          <View key={item.id}>
+            <Link href={`/(tabs)/pizza/${item.id}`} asChild>
+              <TouchableOpacity
+                style={{
+                  shadowColor: "black",
+                  shadowRadius: 40,
+                  shadowOffset: { width: -20, height: -10 },
+                  shadowOpacity: 1,
+                }}
+                className="p-4 rounded-full"
+              >
+                <AntDesign name="pluscircle" size={45} color="white" />
+              </TouchableOpacity>
+            </Link>
+          </View>
         </View>
       </View>
     </View>

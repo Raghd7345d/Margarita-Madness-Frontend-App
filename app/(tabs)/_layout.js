@@ -29,7 +29,7 @@ export default function MainTabs() {
         }}
       />
       <Drawer.Screen
-        name="[id]"
+        name="pizza/[id]"
         options={{
           title: "Page 2",
 

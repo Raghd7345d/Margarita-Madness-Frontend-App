@@ -3,7 +3,7 @@ import { Text, View, Image, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Entypo } from "@expo/vector-icons";
 import { useNavigation } from "expo-router";
-import { pizzaItems } from "../../constants";
+import { pizzaItems } from "../../../constants";
 import { useLocalSearchParams } from "expo-router";
 import { FontAwesome } from "@expo/vector-icons";
 import { useState } from "react";
@@ -17,7 +17,7 @@ export default function ProductScreen() {
     <View style={{ flex: 1 }}>
       <StatusBar style="light" />
       <Image
-        source={require("../../assets/images/creative.jpeg")}
+        source={require("../../../assets/images/creative.jpeg")}
         style={{
           height: 300,
           borderBottomLeftRadius: 50,
@@ -49,14 +49,14 @@ export default function ProductScreen() {
         <View className="flex-row mx-4 items-center rounded-3xl p-1 px-2 space-x-1 w-16 opacity-90">
           <FontAwesome name="star" size={24} color="black" />
           <Text className="text-base font-semibold text-white">
-            {item.stars}
+            {pizza.stars}
           </Text>
           <View className="mx-4 flex-row justify-between items-center">
-            <Text className="text-3xl font-semibold">{item.name}</Text>
-            <Text className="text-lg font-semibold">€{item.price}</Text>
+            <Text className="text-3xl font-semibold">{pizza.name}</Text>
+            <Text className="text-lg font-semibold">€{pizza.price}</Text>
           </View>
           <View className="mx-4 space-y-2">
-            <Text className="text-lg font-bold">Pizza size</Text>{" "}
+            <Text className="text-lg font-bold">Pizza size</Text>
           </View>
           <View className="flex-row justify-between">
             <TouchableOpacity
@@ -112,7 +112,7 @@ export default function ProductScreen() {
                 Volume
               </Text>
               <Text className="text-base text-black font-semibold">
-                {item.volume}
+                {pizza.volume}
               </Text>
             </View>
           </View>
