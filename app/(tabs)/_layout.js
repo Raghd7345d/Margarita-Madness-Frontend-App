@@ -31,7 +31,7 @@ export default function MainTabs() {
       <Drawer.Screen
         name="pizza/[id]"
         options={{
-          title: "Page 2",
+          title: "Details",
 
           tabBarIcon: ({ color }) => {
             return (

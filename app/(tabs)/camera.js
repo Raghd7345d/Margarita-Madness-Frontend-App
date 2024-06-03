@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-// import { useCameraPermissions } from "expo-camera";
 import { CameraView, useCameraPermissions } from "expo-camera";
 import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-// import { UserProvider } from "../../context/UserProvider";
-// import { useContext } from "react";
+import { Entypo } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Camera() {
-  //   const { setPromocode, promocode } = useContext(UserProvider);
+  const navigation = useNavigation();
   const [scanCompleted, setScanCompleted] = useState(false);
-
   const [facing, setFacing] = useState("back");
   const [permission, requestPermission] = useCameraPermissions();
 
@@ -40,8 +38,12 @@ export default function Camera() {
     }
     // setPromocode(code);
   };
+
   return (
     <View style={styles.container}>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+        <Entypo name="arrow-with-circle-left" size={50} color="black" />
+      </TouchableOpacity>
       {scanCompleted ? (
         <>
           <Text>Scan completed</Text>

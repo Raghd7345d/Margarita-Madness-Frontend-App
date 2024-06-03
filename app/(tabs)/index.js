@@ -20,12 +20,29 @@ export default function Home() {
   const [activeCategory, setActiveCategory] = useState(1);
   const [listPizza, setListPizza] = useState(pizzaItems);
 
+  function searchByName(query) {
+    setListPizza(
+      pizzaItems.filter((item) =>
+        item.name.toLowerCase().includes(query.toLowerCase())
+      )
+    );
+  }
+
   function toggleFavorite(id) {
     setListPizza((prevList) =>
       prevList.map((pizza) =>
         pizza.id === id ? { ...pizza, favorite: !pizza.favorite } : pizza
       )
     );
+  }
+
+  function filterByCategory(categoryId) {
+    setActiveCategory(categoryId);
+    if (categoryId === 0) {
+      setListPizza(pizzaItems);
+    } else {
+      setListPizza(pizzaItems.filter((item) => item.categoryId === categoryId));
+    }
   }
 
   return (
@@ -59,6 +76,7 @@ export default function Home() {
             <TextInput
               placeholder="Search"
               className="p-3 flex-1 font-semibold text-gray-700"
+              onChangeText={(text) => searchByName(text)}
             />
             <TouchableOpacity className="rounded-full p-2">
               <AntDesign
@@ -70,6 +88,7 @@ export default function Home() {
             </TouchableOpacity>
           </View>
         </View>
+
         {/* Categories */}
         <View className="px-5 mt-6">
           <FlatList
@@ -79,11 +98,11 @@ export default function Home() {
             keyExtractor={(item) => item.id.toString()}
             className="overflow-visible"
             renderItem={({ item }) => {
-              let isActive = item.id == activeCategory;
+              let isActive = item.id === activeCategory;
               let activeTextClass = isActive ? "text-white" : "text-gray-700";
               return (
                 <TouchableOpacity
-                  onPress={() => setActiveCategory(item.id)}
+                  onPress={() => filterByCategory(item.id)}
                   style={{ backgroundColor: isActive ? "#ff9f1c" : "#DDE1DE" }}
                   className="p-4 px-5 rounded-full mr-2 shadow"
                 >
@@ -95,6 +114,7 @@ export default function Home() {
             }}
           />
         </View>
+
         {/* Pizza Cards */}
         <View className="mt-16 py-2">
           <Carousel
