@@ -41,7 +41,7 @@ export default function Home() {
     if (categoryId === 0) {
       setListPizza(pizzaItems);
     } else {
-      setListPizza(pizzaItems.filter((item) => item.categoryId === categoryId));
+      setListPizza(pizzaItems.filter((item) => item.id === categoryId));
     }
   }
 
